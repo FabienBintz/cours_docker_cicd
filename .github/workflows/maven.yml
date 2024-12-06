@@ -62,5 +62,5 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: rg.fr-par.scw.cloud/polytech2024/fbintz/backend:v1.0
+          tags: rg.fr-par.scw.cloud/polytech-2024/fbintz/fabien-backend:v2.0
 
