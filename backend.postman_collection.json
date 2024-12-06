@@ -1,0 +1,686 @@
+{
+	"info": {
+		"_postman_id": "ebbfc434-f2d0-4784-ade2-75d6c8d06e85",
+		"name": "backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7347352"
+	},
+	"item": [
+		{
+			"name": "movies",
+			"item": [
+				{
+					"name": "getMovies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backendUrl}}/movies",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"movies"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "fantasy",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMoviesByGenre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backendUrl}}/movies/genre/",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"movies",
+								"genre",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registerMovie",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Deadpool\",\n    \"plot\": \"Once upon a time...\",\n    \"posterUrl\": \"https://m.media-amazon.com/images/M/MV5BNzY3ZWU5NGQtOTViNC00ZWVmLTliNjAtNzViNzlkZWQ4YzQ4XkEyXkFqcGc@._V1_SX300.jp\",\n    \"year\": \"2016\",\n    \"genre\": \"clip\",\n    \"imDbId\": \"tt1431045\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backendUrl}}/movies",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateMovie",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"a6f5728c-e40b-42bf-85ee-3b1a280a22e8\",\n    \"name\": \"Michael Jackson: Thriller\",\n    \"posterUrl\": \"https://m.media-amazon.com/images/M/MV5BODhhZjJlYTktZDQ2MS00Yzk4LWFlOTQtYTgyOGE1ZGE5YWEyL2ltYWdlXkEyXkFqcGdeQXVyMzA5MjgyMjI@._V1_SX300.jpg\",\n    \"plot\": \"Once upon a time...\",\n    \"genre\": \"UNKNOWN\",\n    \"imDbId\": \"tt0088263\",\n    \"year\": 1983\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backendUrl}}/movies/a21e0755-7443-4294-a4df-bf12f1c0a7f4",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"movies",
+								"a21e0755-7443-4294-a4df-bf12f1c0a7f4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMovieById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backendUrl}}/movies/{{movieId}}",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"movies",
+								"{{movieId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchMovies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backendUrl}}/movies/search?name=thrille",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"movies",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "thrille"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publishComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Pas fou...\",\n    \"content\": \"J'ai pas aimé personnellement, c'est trop vieux\",\n    \"userId\": \"{{userId}}\",\n    \"movieId\": \"{{movieId}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backendUrl}}/movies/{{movieId}}/comments",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"movies",
+								"{{movieId}}",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCommentsForMovie",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backendUrl}}/movies/{{movieId}}/comments",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"movies",
+								"{{movieId}}",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "hello-world",
+			"item": [
+				{
+					"name": "hello-world",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backendUrl}}/hello-world/name?name=toto",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"hello-world",
+								"name"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "toto"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register Entity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backendUrl}}/hello-world/entity",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"hello-world",
+								"entity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllByAge",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backendUrl}}/hello-world/findAllByAge?age=30",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"hello-world",
+								"findAllByAge"
+							],
+							"query": [
+								{
+									"key": "age",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllByNameNative",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backendUrl}}/hello-world/findAllByNameNative?name=John",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"hello-world",
+								"findAllByNameNative"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "John"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hello-path-variable",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backendUrl}}/hello-world/name/{{pathVarTest}}",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"hello-world",
+								"name",
+								"{{pathVarTest}}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"username_2@example.com\",\n    \"password\": \"Password1!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backendUrl}}/auth/login",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "libraries",
+			"item": [
+				{
+					"name": "getMyLibrary",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backendUrl}}/libraries/{{libraryId}}",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"libraries",
+								"{{libraryId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addMovieToLibrary",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backendUrl}}/libraries/{{libraryId}}/movies/{{movieId}}",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"libraries",
+								"{{libraryId}}",
+								"movies",
+								"{{movieId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patchMovieWatchedStatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"watched\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backendUrl}}/libraries/{{libraryId}}/movies/{{movieId}}/watched",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"libraries",
+								"{{libraryId}}",
+								"movies",
+								"{{movieId}}",
+								"watched"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patchMovieRating",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rating\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backendUrl}}/libraries/{{libraryId}}/movies/{{movieId}}/rating",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"libraries",
+								"{{libraryId}}",
+								"movies",
+								"{{movieId}}",
+								"rating"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"username_2\",\n    \"email\": \"username_2@example.com\",\n    \"password\": \"Password1!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backendUrl}}/users/register",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backendUrl}}/users/{{userId}}",
+							"host": [
+								"{{backendUrl}}"
+							],
+							"path": [
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "external-api",
+			"item": [
+				{
+					"name": "getMovies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.omdbapi.com?s=deadpool&p=0&apiKey={{omDbApiKey}}",
+							"protocol": "https",
+							"host": [
+								"www",
+								"omdbapi",
+								"com"
+							],
+							"query": [
+								{
+									"key": "s",
+									"value": "deadpool"
+								},
+								{
+									"key": "p",
+									"value": "0"
+								},
+								{
+									"key": "apiKey",
+									"value": "{{omDbApiKey}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "pathVarTest",
+			"value": "truc"
+		}
+	]
+}
